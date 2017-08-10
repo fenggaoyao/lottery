@@ -1,21 +1,20 @@
 <!Doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/index.css">
-    <title>抽了个奖</title>
+    <title>2017新春年会</title>
 </head>
     <body>
         <div id="main"></div>
-        <button id="toggle">START</button>
+        <div class="btnDiv"><button id="toggle">开 始 抽 奖</button></div>
         <div id="winner-list">
             <h3>获奖人名单</h3>
             <ul></ul>
         </div>
-        <div id="logos">
-            <img src="img/logo-echarts2.png" alt="" height = "60px">
-            <img src="img/qtek-logo.png" alt="" height = "50px">
+       <div id="logos">
+           <img src="img/qtek-logo.png" alt="" height = "50px">
         </div>
         <script src="lib/esl.js"></script>
         <script src="lib/cannon.js"></script>
@@ -25,12 +24,12 @@
                     qtek: 'lib/qtek'
                 }
             });
-            require(['js/lottery'], function (lottery) {
+            require(['js/lottery', "js/staff"], function (lottery, staff) {
                 // 候选人
                 var candidates = [];
-                for (var i = 0; i < 180; i++) {
+                for (var i = 0; i < staff.length; i++) {
                     candidates.push({
-                        name: '沈毅' + i,
+                        name: staff[i],
                         color: [Math.random(), Math.random(), Math.random()],
                         weight: Math.random()
                     })
@@ -53,7 +52,8 @@
                         return;
                     }
                     if (! rolling) {
-                        this.innerHTML = 'STOP';
+                        this.innerHTML = '停 止';
+                        this.className = 'stopBtn'; 
                         animating = true;
                         instance.startRolling(function () {
                             rolling = !rolling;
@@ -61,7 +61,8 @@
                         });
                     }
                     else {
-                        this.innerHTML = 'START';
+                        this.innerHTML = '开 始 抽 奖';
+                        this.className = 'startBtn'; 
                         animating = true;
                         var result = instance.stopRolling(function (name) {
                             var $li = document.createElement('li');

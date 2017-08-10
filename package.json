@@ -1,0 +1,24 @@
+{
+  "name": "lottery",
+  "version": "1.0.0",
+  "description": "View [online demo](http://pissang.github.io/lottery)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pissang/lottery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pissang/lottery/issues"
+  },
+  "homepage": "https://github.com/pissang/lottery#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "open": "0.0.5"
+  }
+}

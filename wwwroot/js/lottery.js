@@ -191,7 +191,7 @@ define(function (require) {
 
         ctx.fillStyle = 'white';
         ctx.strokeStyle = 'white';
-        ctx.fillText(name, 64, 64);
+        ctx.fillText(name, 64, 64, 128);
 
         return canvas;
     }
